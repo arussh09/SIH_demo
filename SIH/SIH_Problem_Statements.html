@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIH Internal Hackathon — Top 10 Software-Only Smart Automation Problem Statements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1117;
+            --surface: #1a1d27;
+            --surface-2: #232735;
+            --border: #2e3345;
+            --text: #e4e7f1;
+            --text-muted: #8b90a5;
+            --accent-blue: #4f8ff7;
+            --accent-purple: #a78bfa;
+            --accent-green: #34d399;
+            --accent-orange: #fb923c;
+            --accent-red: #f87171;
+            --accent-cyan: #22d3ee;
+            --accent-pink: #f472b6;
+            --accent-yellow: #fbbf24;
+            --accent-indigo: #818cf8;
+            --accent-teal: #2dd4bf;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 32px;
+        }
+
+        /* ===== COVER PAGE ===== */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 32px;
+            background: linear-gradient(135deg, #0f1117 0%, #1a1040 40%, #0f1117 100%);
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(79,143,247,0.12) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+        }
+
+        .cover-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 8px 24px;
+            border-radius: 50px;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover h1 {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.15;
+            background: linear-gradient(135deg, #fff 0%, #c7d2fe 50%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover h2 {
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-stats {
+            display: flex;
+            gap: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-stat {
+            text-align: center;
+        }
+
+        .cover-stat-num {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cover-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .cover-footer {
+            position: absolute;
+            bottom: 40px;
+            font-size: 13px;
+            color: var(--text-muted);
+            z-index: 1;
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            text-align: center;
+            margin: 60px 0 40px;
+            page-break-before: always;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== PROBLEM STATEMENT CARD ===== */
+        .ps-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 48px;
+            page-break-inside: avoid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ps-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .ps-card[data-color="blue"]::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)); }
+        .ps-card[data-color="purple"]::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink)); }
+        .ps-card[data-color="green"]::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-teal)); }
+        .ps-card[data-color="orange"]::before { background: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow)); }
+        .ps-card[data-color="red"]::before { background: linear-gradient(90deg, var(--accent-red), var(--accent-pink)); }
+        .ps-card[data-color="cyan"]::before { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); }
+        .ps-card[data-color="pink"]::before { background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple)); }
+        .ps-card[data-color="yellow"]::before { background: linear-gradient(90deg, var(--accent-yellow), var(--accent-orange)); }
+        .ps-card[data-color="indigo"]::before { background: linear-gradient(90deg, var(--accent-indigo), var(--accent-blue)); }
+        .ps-card[data-color="teal"]::before { background: linear-gradient(90deg, var(--accent-teal), var(--accent-green)); }
+
+        .ps-number {
+            font-size: 72px;
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            right: 32px;
+            opacity: 0.06;
+            line-height: 1;
+        }
+
+        .ps-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .ps-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .tag-agritech { background: rgba(52,211,153,0.15); color: var(--accent-green); }
+        .tag-health { background: rgba(248,113,113,0.15); color: var(--accent-red); }
+        .tag-infra { background: rgba(79,143,247,0.15); color: var(--accent-blue); }
+        .tag-env { background: rgba(45,212,191,0.15); color: var(--accent-teal); }
+        .tag-emergency { background: rgba(251,146,60,0.15); color: var(--accent-orange); }
+        .tag-utilities { background: rgba(34,211,238,0.15); color: var(--accent-cyan); }
+        .tag-governance { background: rgba(167,139,250,0.15); color: var(--accent-purple); }
+        .tag-education { background: rgba(244,114,182,0.15); color: var(--accent-pink); }
+        .tag-finance { background: rgba(129,140,248,0.15); color: var(--accent-indigo); }
+        .tag-safety { background: rgba(251,191,36,0.15); color: var(--accent-yellow); }
+
+        .ps-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .ps-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* Sub sections */
+        .ps-section {
+            margin-bottom: 24px;
+        }
+
+        .ps-section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ps-section-title .icon {
+            font-size: 16px;
+        }
+
+        .ps-problem {
+            background: rgba(248,113,113,0.06);
+            border-left: 3px solid var(--accent-red);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+            color: #d1d5e8;
+        }
+
+        .ps-solution {
+            background: rgba(52,211,153,0.06);
+            border-left: 3px solid var(--accent-green);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+            color: #d1d5e8;
+        }
+
+        .ps-how {
+            background: rgba(79,143,247,0.06);
+            border-left: 3px solid var(--accent-blue);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+            color: #d1d5e8;
+        }
+
+        /* ===== TECH STACK TABLE ===== */
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tech-row {
+            display: grid;
+            grid-template-columns: 140px 1fr 1fr 1fr;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .tech-header {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .tech-header.layer { background: var(--surface-2); color: var(--text-muted); }
+        .tech-header.basic { background: rgba(52,211,153,0.1); color: var(--accent-green); }
+        .tech-header.intermediate { background: rgba(251,146,60,0.1); color: var(--accent-orange); }
+        .tech-header.advanced { background: rgba(248,113,113,0.1); color: var(--accent-red); }
+
+        .tech-cell {
+            padding: 8px 12px;
+            border-radius: 6px;
+            background: var(--surface-2);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #c5cae0;
+        }
+
+        .tech-cell.layer-name {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-cell .highlight {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* ===== PITCH & SCALING ===== */
+        .pitch-box {
+            background: linear-gradient(135deg, rgba(167,139,250,0.08), rgba(79,143,247,0.08));
+            border: 1px solid rgba(167,139,250,0.2);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        .pitch-box h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin-bottom: 8px;
+        }
+
+        .pitch-box p {
+            font-size: 14px;
+            color: #b8bdd0;
+        }
+
+        .scaling-box {
+            background: linear-gradient(135deg, rgba(52,211,153,0.08), rgba(45,212,191,0.08));
+            border: 1px solid rgba(52,211,153,0.2);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+
+        .scaling-box h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+
+        .scaling-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scaling-box li {
+            font-size: 13px;
+            color: #b8bdd0;
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .scaling-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        /* ===== SCORES ===== */
+        .scores {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .score-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface-2);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .score-badge .label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .score-badge .value {
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .score-badge .value.high { color: var(--accent-green); }
+        .score-badge .value.medium { color: var(--accent-orange); }
+
+        /* ===== DECISION MATRIX ===== */
+        .matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 24px;
+            font-size: 13px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .matrix-table thead th {
+            background: var(--surface-2);
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .matrix-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+
+        .matrix-table tbody tr {
+            background: var(--surface);
+        }
+
+        .matrix-table tbody tr:hover {
+            background: var(--surface-2);
+        }
+
+        .matrix-table .ps-name {
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .badge-small {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .winner-row {
+            background: rgba(52,211,153,0.06) !important;
+            border-left: 3px solid var(--accent-green);
+        }
+
+        /* ===== RECOMMENDATION ===== */
+        .recommendation {
+            background: linear-gradient(135deg, rgba(251,191,36,0.08), rgba(251,146,60,0.06));
+            border: 1px solid rgba(251,191,36,0.25);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 48px;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .recommendation h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-yellow);
+            margin-bottom: 8px;
+        }
+
+        .recommendation p {
+            color: #c5cae0;
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0 auto 24px;
+        }
+
+        .rec-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .rec-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .rec-card h4 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .rec-card .rec-why {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .rec-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .rec-card li {
+            font-size: 13px;
+            color: #b8bdd0;
+            padding: 3px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .rec-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        /* ===== CRITERIA BOX ===== */
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .criteria-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .criteria-item h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .criteria-item p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            :root {
+                --bg: #ffffff;
+                --surface: #ffffff;
+                --surface-2: #f8fafc;
+                --border: #cbd5e1;
+                --text: #0f172a;
+                --text-muted: #475569;
+                --accent-blue: #1d4ed8;
+                --accent-purple: #6d28d9;
+                --accent-green: #047857;
+                --accent-orange: #c2410c;
+                --accent-red: #be123c;
+                --accent-cyan: #0e7490;
+                --accent-pink: #be185d;
+                --accent-yellow: #a16207;
+                --accent-indigo: #4338ca;
+                --accent-teal: #0f766e;
+            }
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+            }
+            .cover {
+                background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 40%, #f8fafc 100%) !important;
+            }
+            .cover::before {
+                background: radial-gradient(circle, rgba(29,78,216,0.06) 0%, transparent 70%) !important;
+            }
+            .cover::after {
+                background: radial-gradient(circle, rgba(109,40,217,0.05) 0%, transparent 70%) !important;
+            }
+            .cover h1 {
+                background: linear-gradient(135deg, #0f172a 0%, #4338ca 50%, #6d28d9 100%) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                background-clip: text !important;
+            }
+            .cover h2 {
+                color: #475569 !important;
+            }
+            .cover-stat-num {
+                background: linear-gradient(135deg, #1d4ed8, #0e7490) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                background-clip: text !important;
+            }
+            .cover-badge {
+                background: linear-gradient(135deg, #1d4ed8, #6d28d9) !important;
+                color: #ffffff !important;
+            }
+            .cover-footer {
+                color: #64748b !important;
+            }
+            .section-header h2 {
+                color: #0f172a !important;
+            }
+            .section-header p {
+                color: #475569 !important;
+            }
+            .ps-card {
+                background: #ffffff !important;
+                border: 1px solid #e2e8f0 !important;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+                break-inside: avoid;
+            }
+            .ps-number {
+                color: #0f172a !important;
+                opacity: 0.08 !important;
+            }
+            .ps-title {
+                color: #0f172a !important;
+            }
+            .ps-subtitle {
+                color: #475569 !important;
+            }
+            .ps-section-title {
+                color: #0f172a !important;
+            }
+            .ps-problem {
+                background: rgba(220, 38, 38, 0.05) !important;
+                border-left: 3px solid #dc2626 !important;
+                color: #1e293b !important;
+            }
+            .ps-solution {
+                background: rgba(22, 163, 74, 0.05) !important;
+                border-left: 3px solid #16a34a !important;
+                color: #1e293b !important;
+            }
+            .ps-how {
+                background: rgba(37, 99, 235, 0.05) !important;
+                border-left: 3px solid #2563eb !important;
+                color: #1e293b !important;
+            }
+            .tech-header.layer { background: #e2e8f0 !important; color: #475569 !important; }
+            .tech-header.basic { background: rgba(22, 163, 74, 0.1) !important; color: #16a34a !important; }
+            .tech-header.intermediate { background: rgba(234, 88, 12, 0.1) !important; color: #ea580c !important; }
+            .tech-header.advanced { background: rgba(220, 38, 38, 0.1) !important; color: #dc2626 !important; }
+            .tech-cell {
+                background: #f8fafc !important;
+                color: #334155 !important;
+            }
+            .tech-cell.layer-name {
+                color: #0f172a !important;
+            }
+            .tech-cell .highlight {
+                color: #0e7490 !important;
+            }
+            .pitch-box {
+                background: linear-gradient(135deg, rgba(109, 40, 217, 0.05), rgba(37, 99, 235, 0.05)) !important;
+                border: 1px solid rgba(109, 40, 217, 0.15) !important;
+            }
+            .pitch-box h4 {
+                color: #6d28d9 !important;
+            }
+            .pitch-box p {
+                color: #334155 !important;
+            }
+            .scaling-box {
+                background: linear-gradient(135deg, rgba(22, 163, 74, 0.05), rgba(13, 148, 136, 0.05)) !important;
+                border: 1px solid rgba(22, 163, 74, 0.15) !important;
+            }
+            .scaling-box h4 {
+                color: #16a34a !important;
+            }
+            .scaling-box li {
+                color: #334155 !important;
+            }
+            .scaling-box li::before {
+                color: #16a34a !important;
+            }
+            .score-badge {
+                background: #f1f5f9 !important;
+            }
+            .score-badge .label {
+                color: #475569 !important;
+            }
+            .score-badge .value {
+                color: #0f172a !important;
+            }
+            .score-badge .value.high { color: #16a34a !important; }
+            .score-badge .value.medium { color: #ea580c !important; }
+            .matrix-table thead th {
+                background: #e2e8f0 !important;
+                color: #475569 !important;
+                border-bottom: 2px solid #cbd5e1 !important;
+            }
+            .matrix-table tbody td {
+                border-bottom: 1px solid #e2e8f0 !important;
+            }
+            .matrix-table tbody tr {
+                background: #ffffff !important;
+            }
+            .matrix-table tbody tr:hover {
+                background: #f8fafc !important;
+            }
+            .matrix-table .ps-name {
+                color: #0f172a !important;
+            }
+            .winner-row {
+                background: rgba(22, 163, 74, 0.05) !important;
+                border-left: 3px solid #16a34a !important;
+            }
+            .recommendation {
+                background: linear-gradient(135deg, rgba(202, 138, 4, 0.05), rgba(234, 88, 12, 0.03)) !important;
+                border: 1px solid rgba(202, 138, 4, 0.2) !important;
+            }
+            .recommendation h3 {
+                color: #a16207 !important;
+            }
+            .recommendation p {
+                color: #334155 !important;
+            }
+            .rec-card {
+                background: #ffffff !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .rec-card .rec-why {
+                color: #64748b !important;
+            }
+            .rec-card li {
+                color: #334155 !important;
+            }
+            .rec-card li::before {
+                color: #16a34a !important;
+            }
+            .govt-scheme {
+                background: rgba(37, 99, 235, 0.08) !important;
+                color: #2563eb !important;
+            }
+            .cover { break-after: page; }
+            .section-header { break-before: page; }
+        }
+
+        /* ===== PAGE BREAK HELPERS ===== */
+        .page-break { page-break-before: always; }
+
+        /* ===== GOVT SCHEME TAG ===== */
+        .govt-scheme {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            background: rgba(79,143,247,0.12);
+            color: var(--accent-blue);
+            margin: 2px 4px 2px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover">
+    <div class="cover-badge">Internal Hackathon 2026</div>
+    <h1>Smart India Hackathon<br>Top 10 Problem Statements</h1>
+    <h2>Software-Only Smart Automation Solutions — AI/ML, Computer Vision, NLP, Optimization & Full-Stack</h2>
+    <div class="cover-stats">
+        <div class="cover-stat">
+            <div class="cover-stat-num">10</div>
+            <div class="cover-stat-label">Problem Statements</div>
+        </div>
+        <div class="cover-stat">
+            <div class="cover-stat-num">100%</div>
+            <div class="cover-stat-label">Software Only</div>
+        </div>
+        <div class="cover-stat">
+            <div class="cover-stat-num">4</div>
+            <div class="cover-stat-label">Sectors Covered</div>
+        </div>
+    </div>
+    <div class="cover-footer">Confidential &bull; Team Research Document &bull; August 2026</div>
+</div>
+
+<!-- ==================== SELECTION CRITERIA ==================== -->
+<div class="container">
+    <div class="section-header">
+        <h2>🎯 Strategic Selection Criteria</h2>
+        <p>What separates a winning "Software-Only" project from a generic CRUD app</p>
+    </div>
+
+    <div class="criteria-grid">
+        <div class="criteria-item">
+            <h4>🧠 Advanced Algorithmic Core</h4>
+            <p>Project must center on a sophisticated automation engine — Computer Vision, NLP/RAG, Complex Optimization, or Predictive Modelling. Not a simple form-based website.</p>
+        </div>
+        <div class="criteria-item">
+            <h4>📱 Accessible Data Input</h4>
+            <p>No hardware allowed. Inputs come from: smartphone cameras, voice recordings, satellite APIs, web scraping, or public datasets.</p>
+        </div>
+        <div class="criteria-item">
+            <h4>🇮🇳 High Societal Visibility</h4>
+            <p>Problems impacting everyday citizens, farmers, government budgets, or public safety carry the highest weight in SIH evaluations.</p>
+        </div>
+        <div class="criteria-item">
+            <h4>🚀 Demo-ability in 5 Minutes</h4>
+            <p>For Round 1 (PPT + Prototype), the idea must produce a visually impressive demo that judges remember. Pure backend logic won't win.</p>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 1: GRAIN GRADING -->
+    <!-- ============================================================ -->
+    <div class="section-header">
+        <h2>📋 Problem Statements</h2>
+        <p>Detailed breakdown with tech stacks from basic to advanced</p>
+    </div>
+
+    <div class="ps-card" data-color="green">
+        <div class="ps-number">01</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-agritech">AgriTech</span>
+            <span class="ps-tag tag-agritech" style="background:rgba(52,211,153,0.08);">Farmer Welfare</span>
+        </div>
+        <div class="ps-title">AI-Powered Mobile Grain Quality Grading & Fair Price Estimation</div>
+        <div class="ps-subtitle">Target: Agriculture, Mandis, and Farmer Welfare &nbsp;|&nbsp; Feasibility: 8.5/10 &nbsp;|&nbsp; Impact: 9.5/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                At agricultural mandis, grain quality checking is done manually by traders who visually estimate impurities. Traders exaggerate defects (chaff, broken grains, discoloration) to buy crops at under-rates, systematically exploiting farmers who have no scientific verification tool.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                A mobile app where the farmer spreads grain on a dark sheet, snaps a photo. AI performs instance segmentation to count and classify healthy grains, broken grains, discolored grains, and dust/stones. Cross-references with government MSP and live market rates to output a fair price per quintal. Works fully offline.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">HTML/CSS/JS<br>React.js SPA</div>
+                    <div class="tech-cell">React Native<br>Expo (cross-platform)</div>
+                    <div class="tech-cell">Flutter (offline-first)<br>ONNX Runtime Mobile</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Flask / Express.js<br>REST API</div>
+                    <div class="tech-cell">Python FastAPI<br>Celery task queue</div>
+                    <div class="tech-cell">FastAPI + Redis<br>Edge serverless deploy</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">AI / ML</div>
+                    <div class="tech-cell">Pre-trained <span class="highlight">MobileNet</span><br>Image classification</div>
+                    <div class="tech-cell"><span class="highlight">YOLOv8-Seg</span><br>Instance segmentation<br>Transfer learning</div>
+                    <div class="tech-cell"><span class="highlight">YOLOv8-Seg (quantized)</span><br>On-device ONNX inference<br>HSV color moisture profiling</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Database</div>
+                    <div class="tech-cell">SQLite (local)</div>
+                    <div class="tech-cell">PostgreSQL<br>Supabase</div>
+                    <div class="tech-cell">PostgreSQL + Redis cache<br>Offline sync engine</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Data Source</div>
+                    <div class="tech-cell">Manual CSV of MSP prices</div>
+                    <div class="tech-cell">AGMARKNET API scraper</div>
+                    <div class="tech-cell">Live AGMARKNET + eNAM<br>Real-time price feeds</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Democratizing Mandi Grading"</strong> — Live demo: take a photo of mixed grains, show color-coded bounding boxes around broken/healthy grains, display a "Recommended Mandi Bidding Rate" card. Judges can try it on their phones.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Pilot with 5 mandis in one district, validate with APMC officials</li>
+                <li><strong>Phase 2:</strong> Integrate with eNAM (National Agriculture Market) for pan-India price feeds</li>
+                <li><strong>Phase 3:</strong> API for FPOs (Farmer Producer Organizations) to bulk-grade procurement</li>
+                <li>Align with <span class="govt-scheme">PM-KISAN</span> <span class="govt-scheme">eNAM</span> <span class="govt-scheme">Digital India</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value high">8.5</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">9.5</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">On-device YOLOv8</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 2: COUNTERFEIT MEDICINE -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="red">
+        <div class="ps-number">02</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-health">Public Health</span>
+            <span class="ps-tag tag-health" style="background:rgba(248,113,113,0.08);">Pharma</span>
+        </div>
+        <div class="ps-title">Deep-Learning Counterfeit Medicine Packaging Detection Engine</div>
+        <div class="ps-subtitle">Target: Healthcare, Consumer Protection, Pharma &nbsp;|&nbsp; Feasibility: 8.0/10 &nbsp;|&nbsp; Impact: 9.5/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                Counterfeit medicines plague Indian pharmacies. Fake packaging looks identical to the naked eye, leading to treatment failures and preventable deaths. Normal consumers cannot distinguish genuine from counterfeit at the pharmacy counter.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                A verification app scans medicine strip packaging using a smartphone camera. AI analyzes micro-printing defects, font kerning shifts, logo misalignment, and packaging texture profiles that differ when counterfeiters duplicate original printing plates. Cross-references batch numbers against a secure registry.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js web app<br>File upload</div>
+                    <div class="tech-cell">Flutter / React Native<br>Camera macro mode</div>
+                    <div class="tech-cell">Flutter with high-res<br>macro camera pipeline</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Flask REST API</div>
+                    <div class="tech-cell">Python FastAPI<br>Background workers</div>
+                    <div class="tech-cell">FastAPI + Celery<br>Async image pipeline</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">AI / ML</div>
+                    <div class="tech-cell">OpenCV template matching<br><span class="highlight">SSIM</span> comparison</div>
+                    <div class="tech-cell"><span class="highlight">Siamese Networks</span><br>Contrastive learning<br>LBP texture analysis</div>
+                    <div class="tech-cell"><span class="highlight">Siamese CNN + Triplet Loss</span><br>Sub-pixel print forensics<br>Embedding hash matching</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Database</div>
+                    <div class="tech-cell">SQLite / JSON files</div>
+                    <div class="tech-cell">PostgreSQL<br>Batch number registry</div>
+                    <div class="tech-cell">PostgreSQL + <span class="highlight">pgvector</span><br>Visual embedding store<br>Duplicate scan detection</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Verification</div>
+                    <div class="tech-cell">Manual master image DB</div>
+                    <div class="tech-cell">Pharma company API<br>for verified designs</div>
+                    <div class="tech-cell">Decentralized hash registry<br>Cross-scan clone detection</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Visual Forensic Print Analysis"</strong> — Scan two medicine strips side by side. Show sub-pixel differences highlighted in red. One is genuine, one is slightly altered — the AI catches it instantly. Empowers every citizen at the pharmacy counter.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Partner with 3-5 major pharma companies for verified master packaging data</li>
+                <li><strong>Phase 2:</strong> Integrate with CDSCO (Central Drugs Standard Control Organisation) portal</li>
+                <li><strong>Phase 3:</strong> API for pharmacy chains and Jan Aushadhi Kendras nationwide</li>
+                <li>Align with <span class="govt-scheme">Ayushman Bharat</span> <span class="govt-scheme">Jan Aushadhi</span> <span class="govt-scheme">Digital Health Mission</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value high">8.0</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">9.5</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">Siamese Network Forensics</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 3: POTHOLE TRACKER -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="blue">
+        <div class="ps-number">03</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-infra">Road Infrastructure</span>
+            <span class="ps-tag tag-infra" style="background:rgba(79,143,247,0.08);">Smart Cities</span>
+        </div>
+        <div class="ps-title">Crowdsourced Pothole Detection & Municipal Work-Order Automation</div>
+        <div class="ps-subtitle">Target: Road Transport, Municipal Corporations &nbsp;|&nbsp; Feasibility: 8.5/10 &nbsp;|&nbsp; Impact: 9.0/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                Indian roads are notorious for potholes causing thousands of fatal accidents annually. Municipalities rely on slow manual inspections or reactive citizen complaints, leading to massive delays. There's no systematic, real-time way to detect and track road damage.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                A background SDK running in driver/delivery apps. When the phone is dashboard-mounted, it uses the camera + accelerometer to auto-detect potholes and geo-tag them. Thousands of reports from different vehicles are clustered into confirmed locations on a live GIS map, automatically generating municipal repair tickets.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js + Leaflet.js<br>Map dashboard</div>
+                    <div class="tech-cell">React Native app<br>Background camera capture</div>
+                    <div class="tech-cell">Native Android SDK<br><span class="highlight">TensorFlow.js / WebNN</span><br>On-device classification</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Express.js / Flask</div>
+                    <div class="tech-cell">Python FastAPI<br>Celery + Redis queue</div>
+                    <div class="tech-cell">FastAPI + Celery + Redis<br>Horizontal scaling</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">AI / ML</div>
+                    <div class="tech-cell">Threshold-based<br>accelerometer spike detection</div>
+                    <div class="tech-cell">CNN image classifier<br>+ accelerometer fusion</div>
+                    <div class="tech-cell"><span class="highlight">YOLOv8</span> road defect detection<br>+ Z-axis accelerometer<br>impact depth estimation</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Database</div>
+                    <div class="tech-cell">PostgreSQL + lat/lng</div>
+                    <div class="tech-cell">PostgreSQL + <span class="highlight">PostGIS</span></div>
+                    <div class="tech-cell">PostGIS + TimescaleDB<br>Geospatial time-series</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Analytics</div>
+                    <div class="tech-cell">Simple coordinate grouping</div>
+                    <div class="tech-cell"><span class="highlight">DBSCAN</span> clustering</div>
+                    <div class="tech-cell">DBSCAN + traffic density<br>scoring (OpenStreetMap)<br>Auto-priority dispatch</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Federated Anomaly Mapping"</strong> — Present a live GIS heatmap showing color-coded road damage clusters. Demo: show how the backend auto-packages coordinates into a formatted email ticket to the local PWD officer with severity score and photo evidence.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Pilot with one municipal corporation's fleet vehicles</li>
+                <li><strong>Phase 2:</strong> SDK integration with major delivery platforms (Zomato, Swiggy, Uber)</li>
+                <li><strong>Phase 3:</strong> National road quality index powering NHAI maintenance budgets</li>
+                <li>Align with <span class="govt-scheme">Smart Cities Mission</span> <span class="govt-scheme">Bharat NCAP</span> <span class="govt-scheme">PMGSY</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value high">8.5</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">9.0</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">DBSCAN + Accelerometer</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 4: STUBBLE BURNING -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="teal">
+        <div class="ps-number">04</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-env">Environment</span>
+            <span class="ps-tag tag-agritech">Agriculture</span>
+        </div>
+        <div class="ps-title">Satellite-AI Stubble Burning Logistics Marketplace & Smart Allocation Engine</div>
+        <div class="ps-subtitle">Target: Environment, Agriculture, Energy &nbsp;|&nbsp; Feasibility: 7.5/10 &nbsp;|&nbsp; Impact: 9.5/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                Crop residue burning (parali) in North India causes deadly winter smog in Delhi-NCR. Farmers burn stubble because manual removal is expensive and they lack coordination to sell it to biomass/biogas companies. There's no logistics platform connecting supply (farmers) to demand (industry).
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                An automated supply-chain marketplace. Satellite remote sensing predicts harvest dates and estimates stubble volume on fields. The platform coordinates local aggregators (baler operators) to collect, pack, and transport biomass to buying plants using optimized vehicle routing within the short 30-day harvest window.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js web dashboard</div>
+                    <div class="tech-cell">Next.js (Admin Panel)<br>+ Flutter (Farmer App)</div>
+                    <div class="tech-cell">Next.js + Flutter<br>Real-time map with<br>satellite overlay</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Flask / Express.js</div>
+                    <div class="tech-cell">Python FastAPI<br>Background processing</div>
+                    <div class="tech-cell">FastAPI + Kafka<br>Event-driven pipeline</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">GIS / Satellite</div>
+                    <div class="tech-cell">Static satellite images<br>manual analysis</div>
+                    <div class="tech-cell"><span class="highlight">Google Earth Engine</span><br>NDVI calculations</div>
+                    <div class="tech-cell">Sentinel-2 Hub API<br><span class="highlight">NDVI time-series</span><br>Harvest prediction model</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Optimization</div>
+                    <div class="tech-cell">Manual route assignment</div>
+                    <div class="tech-cell"><span class="highlight">Google OR-Tools</span><br>Vehicle Routing Problem</div>
+                    <div class="tech-cell"><span class="highlight">Genetic Algorithms</span><br>Multi-depot VRP<br>Double-auction pricing</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Database</div>
+                    <div class="tech-cell">PostgreSQL</div>
+                    <div class="tech-cell">PostgreSQL + PostGIS</div>
+                    <div class="tech-cell">PostGIS + Redis<br>Real-time bid matching</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Predictive Geo-Fenced Supply Chain"</strong> — Demo the satellite view interface. Show a farm flagged as "harvest-ready", auto-trigger a collection route for the nearest truck, generate a digital purchase contract. Automating logistics before the farmer even burns.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Pilot in 2-3 districts of Punjab/Haryana during Kharif season</li>
+                <li><strong>Phase 2:</strong> Onboard biomass power plants and CBG companies as marketplace buyers</li>
+                <li><strong>Phase 3:</strong> Integration with CPCB air quality monitoring; carbon credit marketplace</li>
+                <li>Align with <span class="govt-scheme">National Clean Air Programme</span> <span class="govt-scheme">GOBAR-Dhan</span> <span class="govt-scheme">SATAT Scheme</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value medium">7.5</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">9.5</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">Satellite + VRP Routing</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 5: AMBULANCE GREEN CORRIDOR -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="orange">
+        <div class="ps-number">05</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-emergency">Emergency Services</span>
+            <span class="ps-tag tag-infra" style="background:rgba(79,143,247,0.08);">Smart Cities</span>
+        </div>
+        <div class="ps-title">Autonomous Ambulance Traffic Optimization & Green Corridor API</div>
+        <div class="ps-subtitle">Target: Urban Traffic, Emergency Medicine &nbsp;|&nbsp; Feasibility: 7.0/10 &nbsp;|&nbsp; Impact: 9.0/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                Traffic congestion in Indian cities causes severe ambulance delays, often leading to patient deaths during transit. Traffic police manually clearing roads is slow and cannot coordinate across multiple junctions simultaneously. Every minute counts.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                Software that integrates ambulance GPS with city Intelligent Traffic Management Systems. It calculates the ambulance's path, dynamically adjusts traffic light timings (signal preemption) along the route to create an automated "green corridor" — turning signals green before the ambulance arrives and restoring normal cycles after it passes.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js + Leaflet.js<br>Static map view</div>
+                    <div class="tech-cell">React.js + Mapbox GL JS<br>Real-time vehicle tracking</div>
+                    <div class="tech-cell">Mapbox GL JS + WebSocket<br>Live junction animations</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Express.js / Flask</div>
+                    <div class="tech-cell">Python FastAPI<br>WebSocket server</div>
+                    <div class="tech-cell">FastAPI + Redis Pub/Sub<br>Event-driven architecture</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Simulation</div>
+                    <div class="tech-cell">Manual mock data</div>
+                    <div class="tech-cell"><span class="highlight">SUMO</span> traffic simulator<br>Basic signal control</div>
+                    <div class="tech-cell"><span class="highlight">SUMO + TraCI API</span><br>Real-time simulation<br>feedback loop</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">AI / ML</div>
+                    <div class="tech-cell">Rule-based signal override<br>(if ambulance < 500m → green)</div>
+                    <div class="tech-cell">Dijkstra/A* routing<br>ETA-based preemption</div>
+                    <div class="tech-cell"><span class="highlight">Deep RL (DQN / PPO)</span><br>Multi-agent signal coordination<br>Queue density awareness</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Integration</div>
+                    <div class="tech-cell">GPS coordinates polling</div>
+                    <div class="tech-cell">REST API for ITMS</div>
+                    <div class="tech-cell"><span class="highlight">Dynamic Signal Preemption API</span><br>Standard for any city ITMS</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Dynamic Signal Preemption API"</strong> — Visual simulation: ambulance icon moves through intersections. Traffic light ahead turns green 15 seconds before arrival, returns to normal after passing. Show time saved vs. no-preemption baseline.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Simulate with SUMO for one city's junction network</li>
+                <li><strong>Phase 2:</strong> Pilot integration with one Smart City's ITMS (Pune/Ahmedabad)</li>
+                <li><strong>Phase 3:</strong> National API standard for all 100 Smart City ITMS deployments</li>
+                <li>Align with <span class="govt-scheme">Smart Cities Mission</span> <span class="govt-scheme">National Health Mission</span> <span class="govt-scheme">108 Ambulance Network</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value medium">7.0</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">9.0</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">RL Signal Control</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 6: WATER LEAK ANALYTICS -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="cyan">
+        <div class="ps-number">06</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-utilities">Utilities</span>
+            <span class="ps-tag tag-utilities" style="background:rgba(34,211,238,0.08);">Jal Shakti</span>
+        </div>
+        <div class="ps-title">Municipal Water Distribution Leakage & Theft Analytics Dashboard</div>
+        <div class="ps-subtitle">Target: Water Resources, Municipal Utilities &nbsp;|&nbsp; Feasibility: 8.0/10 &nbsp;|&nbsp; Impact: 8.5/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                Up to 40% of piped water in Indian municipalities is lost to pipe leakage and illegal tapping before reaching households. This causes severe drinking water shortages. Municipalities cannot locate leaks without expensive, slow physical excavation.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                A diagnostic software platform ingesting flow rate and pressure telemetry from existing bulk meters at key distribution nodes. AI detects abnormal pressure drop signatures and pinpoints leak/theft coordinates by modeling hydraulic water head loss using physics-informed machine learning, without digging up streets.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js + Chart.js<br>Basic line graphs</div>
+                    <div class="tech-cell">React.js + <span class="highlight">D3.js</span><br>Hydraulic visualizations</div>
+                    <div class="tech-cell">React + D3.js + TailwindCSS<br>Real-time animated network<br>pressure line diagrams</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Flask REST API</div>
+                    <div class="tech-cell">Python FastAPI</div>
+                    <div class="tech-cell">FastAPI + Celery<br>Streaming data pipeline</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">AI / ML</div>
+                    <div class="tech-cell">Threshold-based<br>anomaly detection</div>
+                    <div class="tech-cell"><span class="highlight">LSTM Autoencoders</span><br>Temporal anomaly detection</div>
+                    <div class="tech-cell"><span class="highlight">LSTM Autoencoder +</span><br><span class="highlight">Physics-informed NN</span><br>(Darcy-Weisbach loss fn)<br>Gradient boosting regressors</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Database</div>
+                    <div class="tech-cell">PostgreSQL</div>
+                    <div class="tech-cell"><span class="highlight">TimescaleDB</span><br>Time-series optimized</div>
+                    <div class="tech-cell">TimescaleDB + Redis<br>High-freq sensor ingestion</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Alerting</div>
+                    <div class="tech-cell">Email notifications</div>
+                    <div class="tech-cell">Push notifications<br>SMS gateway</div>
+                    <div class="tech-cell">Real-time push alerts<br>Mobile app for field engineers<br>Auto-isolation valve triggers</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Physics-Informed Machine Learning"</strong> — Display a clean node diagram of a municipal water grid. Simulate a leak at a junction. Show the system detecting the anomaly, locating the target pipeline segment, and raising a warning alert with coordinates.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Pilot with one municipal DMA (District Metered Area) using existing meters</li>
+                <li><strong>Phase 2:</strong> Cover entire city water network; integrate with SCADA systems</li>
+                <li><strong>Phase 3:</strong> National platform for all Jal Jeevan Mission connected households</li>
+                <li>Align with <span class="govt-scheme">Jal Jeevan Mission</span> <span class="govt-scheme">AMRUT 2.0</span> <span class="govt-scheme">Smart Cities Mission</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value high">8.0</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">8.5</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">Physics-Informed ML</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 7: GRIEVANCE ROUTER -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="purple">
+        <div class="ps-number">07</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-governance">Governance</span>
+            <span class="ps-tag tag-governance" style="background:rgba(167,139,250,0.08);">Digital India</span>
+        </div>
+        <div class="ps-title">Multilingual Panchayat Grievance AI Router & Voice-To-Ticket Engine</div>
+        <div class="ps-subtitle">Target: Rural Governance, Citizen Grievances &nbsp;|&nbsp; Feasibility: 9.0/10 &nbsp;|&nbsp; Impact: 9.0/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                Rural citizens cannot file formal grievances because they cannot write in English/Hindi. Paper complaints get lost in bureaucracy with no tracking. Nobody follows up. Language barriers and illiteracy exclude millions from the governance system.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                A voice-first complaint portal. Citizens speak their complaint in any regional language or upload a photo of a handwritten letter. AI transcribes, translates, categorizes the issue, identifies the correct department, auto-generates a formal ticket, and tracks resolution SLA. Updates are sent back to the citizen via WhatsApp in their language.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js web form<br>File upload</div>
+                    <div class="tech-cell">React.js <span class="highlight">PWA</span><br>Voice recording UI<br>Optimized for low-end phones</div>
+                    <div class="tech-cell">PWA + IVR (phone dial-in)<br>WhatsApp Business API<br>Multi-channel intake</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Flask / Express.js</div>
+                    <div class="tech-cell">Python FastAPI<br>Background workers</div>
+                    <div class="tech-cell">FastAPI + Celery + Redis<br>Agentic pipeline orchestration</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Speech / NLP</div>
+                    <div class="tech-cell">Google Speech-to-Text<br>Google Translate API</div>
+                    <div class="tech-cell"><span class="highlight">OpenAI Whisper</span><br><span class="highlight">Bhashini API</span><br>for Indic languages</div>
+                    <div class="tech-cell"><span class="highlight">IndicWhisper</span> (fine-tuned)<br>Bhashini Translation API<br>Custom dialect models</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">OCR</div>
+                    <div class="tech-cell">Tesseract OCR (basic)</div>
+                    <div class="tech-cell"><span class="highlight">PaddleOCR</span><br>Handwritten text extraction</div>
+                    <div class="tech-cell">PaddleOCR + custom<br>handwriting recognition<br>multi-script support</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">LLM / AI</div>
+                    <div class="tech-cell">Rule-based keyword<br>classification</div>
+                    <div class="tech-cell"><span class="highlight">LangChain</span> + GPT/Gemini<br>Structured extraction</div>
+                    <div class="tech-cell"><span class="highlight">LangChain + Llama-3-8B</span><br>(local via Ollama)<br>Agentic ticketing agent<br>Auto-draft response letters</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Indic-NLU Agentic Ticketing"</strong> — Live demo: play a 10-second voice note in Marathi/Hindi. Show real-time transcription, translation to English, department classification ("Water Supply Dept"), and auto-assignment to a mock officer panel. Jaw-dropping for judges.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Pilot with 5 gram panchayats in one district</li>
+                <li><strong>Phase 2:</strong> Integrate with CPGRAMS (Central Public Grievance Portal) for state-level rollout</li>
+                <li><strong>Phase 3:</strong> Scale to all 2.5 lakh panchayats via Bhashini (Govt-built translation mission)</li>
+                <li>Align with <span class="govt-scheme">Digital India</span> <span class="govt-scheme">National Translation Mission</span> <span class="govt-scheme">e-Governance</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value high">9.0</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">9.0</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">Bhashini + LLM Agent</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 8: ADAPTIVE RURAL TUTOR -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="pink">
+        <div class="ps-number">08</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-education">Education</span>
+            <span class="ps-tag tag-education" style="background:rgba(244,114,182,0.08);">NEP 2020</span>
+        </div>
+        <div class="ps-title">NEP-Aligned Multilingual Adaptive Rural Tutor</div>
+        <div class="ps-subtitle">Target: Education, Rural Literacy &nbsp;|&nbsp; Feasibility: 8.5/10 &nbsp;|&nbsp; Impact: 8.5/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                Rural government schools face terrible teacher-to-student ratios. Children drop out because they can't keep up. Existing EdTech (Byju's etc.) is expensive, needs constant internet, and is English-dominated — excluding rural India entirely.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                An offline-first adaptive learning PWA acting as a personalized tutor. It continuously evaluates learning gaps, adjusts difficulty dynamically, and features an interactive voice assistant explaining concepts in the student's native language. 100% functional offline once content is cached.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js web app<br>Basic quiz interface</div>
+                    <div class="tech-cell">React.js <span class="highlight">PWA</span><br>Service workers<br>Offline caching</div>
+                    <div class="tech-cell">PWA + IndexedDB<br>100% offline learning<br>Gamified UI animations</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Flask / Express.js</div>
+                    <div class="tech-cell">Python FastAPI</div>
+                    <div class="tech-cell">FastAPI + sync engine<br>Offline-first architecture</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Adaptive Engine</div>
+                    <div class="tech-cell">Static question bank<br>Linear progression</div>
+                    <div class="tech-cell"><span class="highlight">Item Response Theory (IRT)</span><br>Difficulty calibration</div>
+                    <div class="tech-cell"><span class="highlight">Bayesian Knowledge Tracing</span><br>Concept mastery modeling<br>RL-based path recommendation</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Voice / LLM</div>
+                    <div class="tech-cell">Pre-recorded audio clips</div>
+                    <div class="tech-cell">Bhashini TTS<br>Text-to-Speech in Hindi</div>
+                    <div class="tech-cell"><span class="highlight">Quantized Llama-3-8B</span><br>Bhashini TTS multi-language<br>Empathetic voice tutoring</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Database</div>
+                    <div class="tech-cell">localStorage / JSON</div>
+                    <div class="tech-cell">SQLite (local)<br>PostgreSQL (central)</div>
+                    <div class="tech-cell">SQLite + PostgreSQL<br>Bi-directional sync<br>when internet available</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Indic LLM Voice Tutoring"</strong> — Show a mock student profile with concept strengths. App generates a math question, grades the response, and offers a voice-guided explanation in Hindi when the student gets it wrong. Adaptive difficulty in real-time.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Pilot in 10 rural government schools in one block</li>
+                <li><strong>Phase 2:</strong> State education board content alignment; DIKSHA platform integration</li>
+                <li><strong>Phase 3:</strong> National rollout via PM eVidya / DIKSHA to 15 lakh govt schools</li>
+                <li>Align with <span class="govt-scheme">NEP 2020</span> <span class="govt-scheme">PM eVidya</span> <span class="govt-scheme">DIKSHA</span> <span class="govt-scheme">Digital India</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value high">8.5</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">8.5</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">BKT + Offline PWA</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 9: GeM BID CARTEL -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="indigo">
+        <div class="ps-number">09</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-finance">Procurement</span>
+            <span class="ps-tag tag-finance" style="background:rgba(129,140,248,0.08);">Anti-Corruption</span>
+        </div>
+        <div class="ps-title">GeM Bid Cartel & Price Manipulation Detection Engine</div>
+        <div class="ps-subtitle">Target: Public Procurement, Government e-Marketplace &nbsp;|&nbsp; Feasibility: 8.0/10 &nbsp;|&nbsp; Impact: 9.0/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                On government bidding portals (GeM), vendors form cartels. They coordinate bid prices to inflate costs, taking turns winning at artificially high rates. This drains crores of public taxpayer money. Manual auditing of thousands of tenders is impractical.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                An automated risk-scoring engine monitoring GeM tender/bidding records. It detects collusion by analyzing bidding timelines, price spreads, and hidden corporate connections (shared directors, same registered addresses). Graph Neural Networks classify suspicious vendor sub-graphs that bid together too frequently.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js + Chart.js<br>Basic bid charts</div>
+                    <div class="tech-cell">React.js + <span class="highlight">Cytoscape.js</span><br>Network graph visualization</div>
+                    <div class="tech-cell">Cytoscape.js + D3.js<br>Interactive vendor network<br>Drill-down fraud trails</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Flask / Express.js</div>
+                    <div class="tech-cell">Python FastAPI</div>
+                    <div class="tech-cell">FastAPI + Celery<br>Batch scraping pipeline</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">AI / ML</div>
+                    <div class="tech-cell">Statistical outlier detection<br>Price spread analysis</div>
+                    <div class="tech-cell"><span class="highlight">Isolation Forest</span><br>Bid pattern anomalies</div>
+                    <div class="tech-cell"><span class="highlight">Graph Neural Networks</span><br>(PyTorch Geometric)<br>Sub-graph classification<br>Explainable fraud scoring</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Database</div>
+                    <div class="tech-cell">PostgreSQL</div>
+                    <div class="tech-cell">PostgreSQL + basic graph queries</div>
+                    <div class="tech-cell"><span class="highlight">Neo4j</span> (Graph DB)<br>+ PostgreSQL<br>Relationship traversal</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Data Source</div>
+                    <div class="tech-cell">Sample CSV datasets</div>
+                    <div class="tech-cell">GeM open tender scraper</div>
+                    <div class="tech-cell">GeM + MCA (Ministry of<br>Corporate Affairs) registry<br>Director network mapping</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Explainable Fraud Trails"</strong> — Show a visual graph of 4 vendor companies. GNN flags them in red as "High-Risk Cartel Node" because they bid together on 15 tenders with identical price spreads. Click a node to see shared directors and submission timestamps.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Analyze 1,000 historical GeM tenders for proof-of-concept</li>
+                <li><strong>Phase 2:</strong> Real-time monitoring API for GeM procurement officers</li>
+                <li><strong>Phase 3:</strong> Expand to all government procurement portals (IREPS, CPPP, state GeMs)</li>
+                <li>Align with <span class="govt-scheme">GeM Portal</span> <span class="govt-scheme">CVC (Vigilance Commission)</span> <span class="govt-scheme">Digital India</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value high">8.0</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">9.0</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">GNN + Neo4j</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PS 10: CCTV SAFETY -->
+    <!-- ============================================================ -->
+    <div class="ps-card" data-color="yellow">
+        <div class="ps-number">10</div>
+        <div class="ps-meta">
+            <span class="ps-tag tag-safety">Public Safety</span>
+            <span class="ps-tag tag-safety" style="background:rgba(251,191,36,0.08);">Women's Safety</span>
+        </div>
+        <div class="ps-title">Crowdsourced Safety Analytics & CCTV Behavioral Anomaly Monitor</div>
+        <div class="ps-subtitle">Target: Public Safety, Police, Women Welfare &nbsp;|&nbsp; Feasibility: 7.0/10 &nbsp;|&nbsp; Impact: 9.5/10</div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🔴</span> The Problem</div>
+            <div class="ps-problem">
+                Women's safety in public spaces remains a major concern. CCTV cameras exist but nobody watches feeds 24/7. By the time footage is reviewed, the crime has already happened. An SOS button is useless if the victim can't reach their phone. Real-time automated threat detection is critical.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">🟢</span> The Solution</div>
+            <div class="ps-solution">
+                An intelligent computer vision layer connecting to existing CCTV feeds. It automatically flags anomalous behavior — a person being stalked across multiple cameras, physical struggles, crowd clustering at odd hours. Sends instant alerts with camera location to nearest police patrols. Automatically blurs non-threat faces for privacy compliance.
+            </div>
+        </div>
+
+        <div class="ps-section">
+            <div class="ps-section-title"><span class="icon">⚙️</span> Tech Stack — Basic to Advanced</div>
+            <div class="tech-stack-grid">
+                <div class="tech-row">
+                    <div class="tech-header layer">Layer</div>
+                    <div class="tech-header basic">🟢 Basic</div>
+                    <div class="tech-header intermediate">🟠 Intermediate</div>
+                    <div class="tech-header advanced">🔴 Advanced</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Frontend</div>
+                    <div class="tech-cell">React.js dashboard<br>Video embed viewer</div>
+                    <div class="tech-cell">React.js control panel<br>Multi-camera grid view</div>
+                    <div class="tech-cell">React.js dispatcher panel<br>Real-time alert overlays<br>Patrol assignment UI</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Backend</div>
+                    <div class="tech-cell">Flask / Express.js</div>
+                    <div class="tech-cell">Python FastAPI<br>WebSocket streaming</div>
+                    <div class="tech-cell">FastAPI + Redis Pub/Sub<br>Distributed GPU workers</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Video Pipeline</div>
+                    <div class="tech-cell">Simple video file upload</div>
+                    <div class="tech-cell"><span class="highlight">FFmpeg</span> + RTSP streaming</div>
+                    <div class="tech-cell">FFmpeg + <span class="highlight">GStreamer</span><br>Multi-camera RTSP pipeline<br>Edge processing nodes</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">AI / ML</div>
+                    <div class="tech-cell">Basic motion detection<br>Frame differencing</div>
+                    <div class="tech-cell"><span class="highlight">YOLOv8</span> object detection<br>Pose estimation</div>
+                    <div class="tech-cell"><span class="highlight">YOLOv8 + SlowFast</span><br>Video Action Recognition<br><span class="highlight">Re-ID</span> cross-camera tracking<br>Privacy-preserving face blur</div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-cell layer-name">Alerting</div>
+                    <div class="tech-cell">Console log alerts</div>
+                    <div class="tech-cell">Push notifications<br>Email alerts</div>
+                    <div class="tech-cell">Real-time dispatch system<br>Nearest patrol unit routing<br>Escalation chains</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pitch-box">
+            <h4>🏆 Round-1 Pitch Angle</h4>
+            <p><strong>"Multi-Camera Stalking Detection"</strong> — Mock dashboard with a CCTV stream. Simulated struggle occurs → red highlight box flashes: "ALERT: Physical Conflict Detected at Metro Exit 3. Dispatched nearest patrol unit." Show Re-ID tracking a person across camera feeds.</p>
+        </div>
+
+        <div class="scaling-box">
+            <h4>🚀 National Scaling & Future Vision</h4>
+            <ul>
+                <li><strong>Phase 1:</strong> Pilot with 50 CCTV cameras in one metro station or bus depot</li>
+                <li><strong>Phase 2:</strong> City-wide deployment integrated with police control room (PCR)</li>
+                <li><strong>Phase 3:</strong> National CCTV analytics layer for Smart Cities; integrate with 112 emergency</li>
+                <li>Align with <span class="govt-scheme">Nirbhaya Fund</span> <span class="govt-scheme">Safe City Project</span> <span class="govt-scheme">Smart Cities Mission</span></li>
+            </ul>
+        </div>
+
+        <div class="scores">
+            <div class="score-badge"><span class="label">Feasibility</span> <span class="value medium">7.0</span></div>
+            <div class="score-badge"><span class="label">Social Impact</span> <span class="value high">9.5</span></div>
+            <div class="score-badge"><span class="label">Winning Edge</span> <span class="value" style="color:var(--accent-cyan);">Cross-Camera Re-ID</span></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DECISION MATRIX -->
+    <!-- ============================================================ -->
+    <div class="section-header page-break">
+        <h2>📊 Strategic Decision Matrix</h2>
+        <p>Compare all 10 ideas at a glance to find the perfect fit for your team</p>
+    </div>
+
+    <table class="matrix-table">
+        <thead>
+            <tr>
+                <th style="width:40px">#</th>
+                <th>Project Name</th>
+                <th>Key Tech Focus</th>
+                <th style="width:80px">Feasibility</th>
+                <th style="width:80px">Impact</th>
+                <th>Winning Edge</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="winner-row">
+                <td><strong>01</strong></td>
+                <td class="ps-name">Mandi Grain Grading AI</td>
+                <td>Computer Vision, Mobile</td>
+                <td><span style="color:var(--accent-green);font-weight:700">8.5</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.5</span></td>
+                <td>On-device YOLOv8, Color Moisture Profiling</td>
+            </tr>
+            <tr>
+                <td><strong>02</strong></td>
+                <td class="ps-name">Counterfeit Medicine Detector</td>
+                <td>CV Texture Analysis, Forensics</td>
+                <td><span style="color:var(--accent-green);font-weight:700">8.0</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.5</span></td>
+                <td>Siamese Network, Print Forensics</td>
+            </tr>
+            <tr>
+                <td><strong>03</strong></td>
+                <td class="ps-name">Crowdsourced Pothole Tracker</td>
+                <td>Mobile, Geospatial, Clustering</td>
+                <td><span style="color:var(--accent-green);font-weight:700">8.5</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.0</span></td>
+                <td>DBSCAN Aggregation, Accelerometer Fusion</td>
+            </tr>
+            <tr>
+                <td><strong>04</strong></td>
+                <td class="ps-name">Stubble Burning Logistics</td>
+                <td>GIS (Sentinel-2), Optimization</td>
+                <td><span style="color:var(--accent-orange);font-weight:700">7.5</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.5</span></td>
+                <td>Double-Auction, Vehicle Routing</td>
+            </tr>
+            <tr>
+                <td><strong>05</strong></td>
+                <td class="ps-name">Ambulance Green Corridor</td>
+                <td>Simulation (SUMO), RL</td>
+                <td><span style="color:var(--accent-orange);font-weight:700">7.0</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.0</span></td>
+                <td>RL Signal Control, Multi-Agent</td>
+            </tr>
+            <tr>
+                <td><strong>06</strong></td>
+                <td class="ps-name">Water Leak Analytics</td>
+                <td>Time-series, Physics-Informed ML</td>
+                <td><span style="color:var(--accent-green);font-weight:700">8.0</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">8.5</span></td>
+                <td>Darcy-Weisbach Network Integration</td>
+            </tr>
+            <tr class="winner-row">
+                <td><strong>07</strong></td>
+                <td class="ps-name">Panchayat Grievance Router</td>
+                <td>NLP, OCR, Audio, Translation</td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.0</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.0</span></td>
+                <td>Bhashini + LLM Agentic Pipeline</td>
+            </tr>
+            <tr>
+                <td><strong>08</strong></td>
+                <td class="ps-name">NEP Adaptive Rural Tutor</td>
+                <td>Adaptive Systems, Voice, Offline</td>
+                <td><span style="color:var(--accent-green);font-weight:700">8.5</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">8.5</span></td>
+                <td>BKT, PWA Offline Sync</td>
+            </tr>
+            <tr>
+                <td><strong>09</strong></td>
+                <td class="ps-name">GeM Bid Cartel GNN</td>
+                <td>Graph DB, Fraud Analytics</td>
+                <td><span style="color:var(--accent-green);font-weight:700">8.0</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.0</span></td>
+                <td>GNN (Neo4j / PyTorch Geometric)</td>
+            </tr>
+            <tr>
+                <td><strong>10</strong></td>
+                <td class="ps-name">CCTV Safety Anomaly Monitor</td>
+                <td>Video Action Recognition, Re-ID</td>
+                <td><span style="color:var(--accent-orange);font-weight:700">7.0</span></td>
+                <td><span style="color:var(--accent-green);font-weight:700">9.5</span></td>
+                <td>Cross-Camera Re-ID, Action CNN</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============================================================ -->
+    <!-- FINAL RECOMMENDATION -->
+    <!-- ============================================================ -->
+    <div class="recommendation">
+        <h3>🏆 Winning Recommendations for Internal Round</h3>
+        <p>For teams with Full-Stack, ML, and App Development skills — these two guarantee the strongest PPT + prototype combination:</p>
+
+        <div class="rec-cards">
+            <div class="rec-card" style="border-color: var(--accent-green);">
+                <h4 style="color:var(--accent-green);">🥇 Option A: Grain Quality Grading (PS 1)</h4>
+                <div class="rec-why">Best for visual live demo impact</div>
+                <ul>
+                    <li>Extremely visual — photo in, graded output instantly</li>
+                    <li>Judges can try it on their phones during presentation</li>
+                    <li>Massive mass appeal for agriculture sector</li>
+                    <li>Strong alignment with PM-KISAN, eNAM, Digital India</li>
+                    <li>On-device AI = zero dependency on internet</li>
+                </ul>
+            </div>
+            <div class="rec-card" style="border-color: var(--accent-purple);">
+                <h4 style="color:var(--accent-purple);">🥇 Option B: Grievance AI Router (PS 7)</h4>
+                <div class="rec-why">Best for fastest stunning prototype</div>
+                <ul>
+                    <li>Fastest to demo — voice in → structured ticket out</li>
+                    <li>Implementable in 2-3 days with LangChain + Bhashini</li>
+                    <li>Uses government's own Bhashini API (huge brownie points)</li>
+                    <li>Directly aligns with Digital India initiatives</li>
+                    <li>Unique — most teams won't touch NLP + regional languages</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; padding: 60px 0 40px; color: var(--text-muted); font-size: 13px;">
+        <p>Smart India Hackathon — Internal Round Research Document</p>
+        <p style="margin-top:4px;">Prepared August 2026 &bull; Confidential</p>
+    </div>
+
+</div>
+
+</body>
+</html>

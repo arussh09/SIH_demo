@@ -1,0 +1,681 @@
+
+=== PAGE 1 ===
+SMART INDIA HACKATHON (SIH)
+COMPLETE COLOR-CODED PROBLEM STATEMENTS: SMART AUTOMATION THEME
+Notice: All problem statements below have been extracted verbatim from official SIH documents. Information is 100% complete with no
+truncations or summarizations. Statements are categorized by Year, Organization, PS Number, and Category (Software / Hardware /
+Software+Hardware).
+SIH 2025 / 2026 (12 Statements)
+PS No.
+Organization
+Category
+Complete Problem Statement Title / Description
+SIH25020
+Ministry of Railways
+Hardware
+Development of indigenous contactless Integrated Track Monitoring
+Systems (ITMS) for Track Recording on Indian Railways
+SIH25033
+Ministry of Corporate
+Affairs
+Software
+AI-Based Smart Allocation Engine for PM Internship Scheme
+SIH25043
+Ministry of Earth
+Sciences (MoES)
+Hardware
+Embedded Intelligent Microscopy System for Identification and Counting
+of Microscopic Marine Organisms
+SIH25054
+Ministry of Consumer
+Affairs, Food & Public
+Distribution
+(MoCA,F&PD;)
+Hardware
+Automated High-Current Short-Circuit Test System for MCB to comply
+with IEC 60898-1:2015
+SIH25065
+Ministry of Jal Shakti
+Software
+Designing and development of an application for on spot assessment of
+Roof Top Rain water harvesting and artificial recharge potential and size
+of the RTRWH and AR.
+SIH25066
+Ministry of Jal Shakti
+Software
+Development of an AI-driven ChatBOT for INGRES as a virtual assistant
+SIH25077
+Government of Kerala
+Hardware
+A hardware that can detect and prevent unauthorized use of electric
+fences
+SIH25080
+Government of Kerala
+Software
+Document Overload at Kochi Metro Rail Limited (KMRL)-An automated
+solution
+SIH25081
+Government of Kerala
+Software
+AI-Driven Train Induction Planning & Scheduling for Kochi Metro Rail
+Limited (KMRL)
+SIH25091
+Government of Jammu
+and Kashmir
+Software
+AI-Based Timetable Generation System aligned with NEP 2020 for
+Multidisciplinary Education Structures
+SIH25102
+Government of
+Rajasthan
+Software
+AI-based drop-out prediction and counseling system
+SIH25103
+Government of
+Rajasthan
+Software
+ERP-based Integrated Student Management system
+SIH 2024 (55 Statements)
+PS No.
+Organization
+Category
+Complete Problem Statement Title / Description
+SIH1771
+Ministry of Jal Shakti
+Hardware
+Personalized testing kits for testing Residual Silver ion level at delivery
+points
+Page 1 of 7
+Smart India Hackathon (SIH) Extracted Official Statements | Color Coded Document
+
+=== PAGE 2 ===
+PS No.
+Organization
+Category
+Complete Problem Statement Title / Description
+SIH1770
+Ministry of Jal Shakti
+Hardware
+Personalized testing kits for testing Bacteriological contamination at
+delivery points
+SIH1752
+Ministry of
+Communication
+Software
+Measurement and Monitoring of Counter Services "Develop a simple to
+use application for measurement and monitoring of counter services
+offered by Post Offices for their customers while providing ease of
+access to mail, parcel, financial, payment, insurance and citizen centric
+services from each Post Office. The solution suggested should integrate
+traditional and modern Industry 4.0 Technology based solution to this
+fundamental challenge faced by the DoP across its vast network.
+Integrating AI-powered image processing technology for effective
+monitoring of smooth, hassle free and efficient counter services based
+on live feed of customer service areas for a delightful customer
+experience are expected as a solution. Ease of application of the
+solution in the practical setting is key to the assessment criteria for this
+problem. The dashboard needs to be accessible at the Post Office and
+to its higher offices in the chain upto Divisional and Regional Office".
+SIH1742
+Ministry of Education
+Software
+Standardizing Odd School Structures to Improve Educational Policy
+Implementation and Resource Allocation
+SIH1740
+Indian Space Research
+Organization (ISRO)
+Software
+Development of map-matching algorithm using AI-ML techniques to
+distinguish vehicular movement on highway and service road
+SIH1737
+Indian Space Research
+Organization (ISRO)
+Software
+Automatic Modulation Recognition software for DVB -S2X waveforms
+SIH1736
+Indian Space Research
+Organization (ISRO)
+Software
+AI based frame interpolation, video generation and display system for
+WMS services
+SIH1735
+Indian Space Research
+Organization (ISRO)
+Software
+On-device semantic segmentation of WMS services with geospatial data
+export
+SIH1730
+AICTE
+Software
+AI driven Inspection of Institutions
+SIH1729
+AICTE
+Software
+AI supported AICTE Approval process portal
+SIH1726
+Ministry of Housing and
+Urban Affairs
+Software
+Utilization of aerial/ drone-based images for monitoring of progress of
+construction activities for building construction projects
+SIH1725
+Ministry of Housing and
+Urban Affairs
+Software
+Utilization of images for monitoring of progress of construction activities
+for building construction projects.
+SIH1721
+Ministry of Youth Affairs
+& Sports
+Software
+Intelligence and Investigations - Enhancing Anti-Doping Efforts
+SIH1711
+Ministry of Railway
+Software
+Enhancing Rail Madad with AI-powered Complaint Management
+SIH1709
+Ministry of Power
+Software
+Comprehensive Automated Document Verification System for Official
+Documentation
+SIH1702
+Ministry of Law &
+Justice
+Software
+Bail Reckoner
+SIH1701
+Ministry of Law &
+Justice
+Software
+AI-Driven Research Engine for Commercial Courts
+SIH1700
+Ministry of Law &
+Justice
+Software
+Developing an AI based interactive Chatbot or virtual assistant for the
+Department of Justice's Website.
+SIH1697
+Ministry of Jal Shakti
+Software
+AI based chatbot for collating and dissemination of information on
+groundwater.
+SIH - SMART AUTOMATION PROBLEM STATEMENTS
+COMPLETE & UNABRIDGED REPOSITORY
+Page 2 of 7
+Smart India Hackathon (SIH) Extracted Official Statements | Color Coded Document
+
+=== PAGE 3 ===
+PS No.
+Organization
+Category
+Complete Problem Statement Title / Description
+SIH1696
+Ministry of Jal Shakti
+Software
+A software application - Ground Water Level Predictor
+SIH1695
+Ministry of Jal Shakti
+Software
+A software application for analysis of DWLR data and raise alarms in
+respect of anomalous values, faulty DWLRs etc
+SIH1694
+Ministry of Jal Shakti
+Software
+Real-time Ganga river water quality forecasting using AI- enabled DSS,
+satellite data, IoT, and dynamic models.
+SIH1693
+Ministry of Jal Shakti
+Software
+Developing a Robust Hydraulic Transient Analysis Model for Hydro
+Power and Pumped Storage Schemes.
+SIH1688
+Ministry of Jal Shakti
+Software
+Development of handheld device/Mobile based Operation &
+Maintenance tool for asset & consumables inventories and finance
+management in context of drinking water supply scheme.
+SIH1686
+National Technical
+Research Organisation
+(NTRO)
+Software
+Tools and techniques for customisation of GPO as per CIS guidelines to
+deploy on offline / standalone windows.
+SIH1685
+National Technical
+Research Organisation
+(NTRO)
+Software
+Building Offline Parallel AV Pipeline to cater multiple AVs for CII entities.
+SIH1682
+National Technical
+Research Organisation
+(NTRO)
+Software
+Centralized Automated Solution for Price Estimation & Reasonability.
+SIH1680
+National Technical
+Research Organisation
+(NTRO)
+Software
+Few Shot Language Agnostic Key Word Spotting system (FSLAKWS)
+for audio files.
+SIH1672
+Ministry of Electronics
+and Information
+Technology
+Software
+Develop a ML Model based solution to refine CAPTCHA.
+SIH1671
+Ministry of Electronics
+and Information
+Technology
+Software
+Develop a functional solution that demonstrates the face liveness
+detection
+SIH1670
+Ministry of Electronics
+and Information
+Technology
+Software
+Develop a functional solution that incorporates the security of the ML
+model.
+SIH1669
+Ministry of Electronics
+and Information
+Technology
+Software
+Transformo Docs Application: Empowering Machine-Readable
+Document Management System.
+SIH1660
+Ministry of Earth
+Sciences
+Software
+Interactive gamified approach to Ocean Literacy
+SIH1657
+Ministry of Earth
+Sciences
+Software
+Integrated Geo-Referenced Fish Catch Data Repository and Access
+System
+SIH1655
+Ministry of Earth
+Sciences
+Software
+Detecting oil spills at marine environment using Automatic Identification
+System (AIS) and satellite datasets
+SIH1654
+Ministry of Defence
+Software
+Determining expert relevance with respect to interview board subject
+and candidates' area of expertise
+SIH1653
+Ministry of Defence
+Software
+Web based Selector-Applicant Simulation Software
+SIH1652
+Ministry of Defence
+Software
+Extraction and Verification of Information from semi-categorised data.
+SIH - SMART AUTOMATION PROBLEM STATEMENTS
+COMPLETE & UNABRIDGED REPOSITORY
+Page 3 of 7
+Smart India Hackathon (SIH) Extracted Official Statements | Color Coded Document
+
+=== PAGE 4 ===
+PS No.
+Organization
+Category
+Complete Problem Statement Title / Description
+SIH1646
+Ministry of Coal
+Software
+App based Project monitoring of S&T;/ R&D; Projects of Coal Sector
+SIH1645
+Ministry of Coal
+Software
+An app and web based software for Productivity and safety
+management of coal mines.
+SIH1625
+Government of NCT of
+Delhi
+Software
+Smart Classroom Management Software for Enhanced Learning
+Environments
+SIH1624
+Government of NCT of
+Delhi
+Software
+To develop an Artificial Intelligence (AI) based model for electricity
+demand projection including peak demand projection for Delhi Power
+system
+SIH1623
+Government of NCT of
+Delhi
+Software
+real-time monitoring and evaluation software for application received in
+Fire Department relating to inspections, follow-ups, issue of NOCs
+SIH1622
+Government of NCT of
+Delhi
+Software
+Online issuance of Caste and other certificates by Revenue Department
+need real-time monitoring
+SIH1617
+Government of NCT of
+Delhi
+Software
+Dynamic route rationalization model based on machine learning/AI
+would be required based on real-time traffic and road parameters.
+SIH1607
+Department of Science
+and Technology
+Software
+A smart AI based solution for traffic management on routes with heavy
+traffic from different directions, with real-time monitoring and adaptation
+of traffic light timings
+SIH1604
+Bharat Electronics
+Limited (BEL)
+Software
+Conversational Image Recognition Chatbot
+SIH1600
+AICTE, MIC- Student
+Innovation
+Software
+Student Innovation
+SIH1569
+Ministry of Jal Shakti
+Hardware
+Personalized testing kits for testing Residual Chlorine level at delivery
+points
+SIH1559
+Ministry of Electronics
+and Information
+Technology
+Hardware
+Develop a functional solution that demonstrates the hardware enabled
+root of trust.
+SIH1558
+Ministry of Culture
+Hardware
+AI-based automated defective exhibit identification system placed in a
+gallery.
+SIH1557
+Ministry of Coal
+Software+Hardw
+are
+Development of Tyre Maintenance and Operation App, including fitment
+of necessary IIoT related hardware in Dumpers
+SIH1544
+Autodesk
+Hardware
+Students are supposed to use Fusion software to generate NC code
+with machine details & tool library for any industrial component. students
+should possess technical skills in areas such as CAD/CAM software,
+G-code programming, toolpath optimization, and machining
+fundamentals. Additionally, their project ideas should demonstrate a
+viable solution to a real-world problem, ensuring feasibility and
+practicality in implementation.
+SIH1543
+Autodesk
+Hardware
+Research and redesign a conventional aerospace component
+commonly found in air vehicles and utilize Fusion software to reimagine
+its design. Students can use Fusion Features such as Generative
+Design, Topology Optimization, Additive Build etc. The redesigned
+component should showcase innovation, enhanced functionality, and
+improved efficiency, all while being optimized for 3D printing.
+SIH1540
+AICTE, MIC- Student
+Innovation
+Hardware
+Student Innovation
+SIH - SMART AUTOMATION PROBLEM STATEMENTS
+COMPLETE & UNABRIDGED REPOSITORY
+Page 4 of 7
+Smart India Hackathon (SIH) Extracted Official Statements | Color Coded Document
+
+=== PAGE 5 ===
+SIH 2023 (36 Statements)
+PS No.
+Organization
+Category
+Complete Problem Statement Title / Description
+SIH1301
+Ministry of power
+Software
+Language translator tool to convert English to Hindi (official Language)
+which can be used by all the government organizations websites
+officially.
+SIH1305
+Government of Punjab
+Software
+The Employment Department at present has a digital platform
+www.pgrkam.com and its mobile application to provide almost all
+services offered to job seekers and employers through digital means.
+The portal has multiple modules like private sector jobs, government
+jobs, self-employment avenues, foreign jobs, foreign study, counseling,
+guidance, induction into armed forces, job melas, etc. Currently, when a
+user visits the portal/app, there is no hand-holding mechanism to help
+the user get to the part of the digital platform which will resolve his
+queries. The user is required to navigate across multiple modules on the
+portal/ app to search for answers.
+SIH1312
+Ministry of coal
+Software
+Chatbot to respond to text queries pertaining to various Acts, Rules, and
+Regulations applicable to Mining industries
+SIH1314
+Ministry of coal
+Software
+Real-time visibility of Dumper load status to Shovel operator
+SIH1317
+Ministry of coal
+Software
+Development of a Digital Platform for multi-modal visibility of coal
+transportation
+SIH1319
+Ministry of coal
+Software
+Forecasting and scheduling of railway rakes.
+SIH1321
+Ministry of Chemicals
+and Fertilizers
+Software
+Compilation and Collection of optimum Level (variable) of data set from
+the Chemical and Petrochemical Industries in the country, aiming to
+smoothen the decision-making and insight generation in the strategic
+initiative.
+SIH1329
+Ministry of Information
+and Broadcasting
+Software
+360-degree feedback software for the Government of India related
+News Stories in Regional Media using Artificial Intelligence / Machine
+Learning
+SIH1330
+Ministry of Information
+and Broadcasting
+Software
+Text to Video of various PIB Press Releases using Artificial Intelligence /
+Machine Learning / Generative Adversarial Networks in English and 13
+Regional Languages viz. Hindi, Urdu, Punjabi, Gujarati, Marathi, Telugu,
+Kannada, Malayalam, Tamil, Odia, Bengali, Assamese and Manipuri.
+SIH1333
+Ministry of Social Justice
+and Empowerment
+Software
+Udyog Saarthi App - (Progressive Web-based Application) for Adults
+undergoing Job coaching for opportunities under 4% reservation in
+NIEPMD and other Institutions.
+SIH1348
+Ministry of Railways
+Software
+Natural language translation engine for announcements and information
+dissemination at stations
+SIH1349
+Ministry of Railways
+Software
+Using existing CCTV network for crowd management, crime prevention,
+and work monitoring using AI/ML
+SIH1350
+Government of Jammu
+and Kashmir
+Software
+Artificial Intelligence Driven Digitization of Cadastral Maps
+SIH1351
+Government of Jammu
+and Kashmir
+Software
+Digital Generator Monitoring Diesel generators are widely used as
+backup power sources in industries, homes, and remote locations
+SIH1359
+Ministry of Commerce
+and Industries
+Software
+Contact center knowledge management tool with decision tree
+SIH - SMART AUTOMATION PROBLEM STATEMENTS
+COMPLETE & UNABRIDGED REPOSITORY
+Page 5 of 7
+Smart India Hackathon (SIH) Extracted Official Statements | Color Coded Document
+
+=== PAGE 6 ===
+PS No.
+Organization
+Category
+Complete Problem Statement Title / Description
+SIH1360
+Ministry of Commerce
+and Industries
+Software
+Price comparison of GeM products with other e-marketplaces
+SIH1370
+Government of
+Jharkhand
+Software
+Real time monitoring of infrastructure development
+SIH1377
+Ministry of Power
+Software
+Creation of Live Digital Twins for the power Projects and integration with
+all existing monitoring and database system which will give a holistic
+real time approach to the project and plant from all aspect of
+construction, operation and maintenance.
+SIH1391
+Ministry of Environment
+Software
+Behavioural change monitoring software
+SIH1392
+Ministry of Environment
+Software
+E-Waste Facility Locator
+SIH1393
+Ministry of Environment
+Software
+Water and Electricity Tracking App
+SIH1407
+Ministry of Home Affairs
+Software
+Chatbot based helpdesk for govt employees and departments
+SIH1410
+Ministry of Home Affairs
+Software
+Augmented/ Virtual reality system for the live training of troops
+SIH1415
+Ministry of Defence
+Software
+Development of motion amplification video techniques for vibration
+analysis
+SIH1428
+Ministry of Rural
+Development
+Software
+AR/VR based application which helps visualize the complete house
+virtually at an early stage, which can help in cost estimation, planning
+and completion of the house in time'
+SIH1429
+Ministry of Rural
+Development
+Software
+Develop a solution to identify discrepancies in Quality Monitoring Data
+on OMMAS and generate reports that highlight areas where corrective
+action is Required.
+SIH1443
+Autodesk Education
+Experience
+Software
+Students to use Autodesk Fusion 360 to research and to generate NC
+code with machine details and tool library for any industrial component.
+For additional information and detailed problem statement, please visit:
+https://damassets.autodesk.net/content/dam/autodesk/www/pdfs/sih-20
+23-hardware-edition-cnc.pdf
+SIH1449
+National Technical
+Research Organisation,
+(NTRO)
+Software
+Design, develop and implement a software bill of materials (SBOM)
+generation tool that can generate the complete SBOM of
+custom-developed software (including in-house developments by
+organisations)
+SIH1450
+National Technical
+Research Organisation,
+(NTRO)
+Software
+Develop and deploy a Large Language Model (LLM) based tool for
+generating human like responses to natural language inputs for network
+not connected over internet
+SIH1457
+MathWorks India Private
+Limited
+Software
+Get Fit Faster with a High-Tech Tracker: Analyze Human Activity and
+GPS Data for Improved Results
+SIH1460
+AICTE
+Software
+Integration of AI for Adaptive Learning for MCQ Selection in PARAKH
+SIH1495
+AICTE, MIC-Student
+Innovation
+Software
+Student Innovation
+SIH1498
+AICTE, MIC
+Software
+Develop a Proctored exam tool for shortlisting the candidates for the
+national and international level hackathons.
+SIH1506
+Ministry of Ports,
+Shipping and
+Waterways
+Software
+Leveraging the power of deep learning to overcome the challenges of
+marine engineering and improve vessel operations
+SIH - SMART AUTOMATION PROBLEM STATEMENTS
+COMPLETE & UNABRIDGED REPOSITORY
+Page 6 of 7
+Smart India Hackathon (SIH) Extracted Official Statements | Color Coded Document
+
+=== PAGE 7 ===
+PS No.
+Organization
+Category
+Complete Problem Statement Title / Description
+SIH1515
+Ministry of Housing and
+Urban Affairs
+Software
+Smart and Effective realtime Management of street parking
+SIH1516
+Ministry of Housing and
+Urban Affairs
+Software
+Suggest an AI-based solution to enable ease of grievance lodging and
+tracking for citizens across multiple departments
+SIH - SMART AUTOMATION PROBLEM STATEMENTS
+COMPLETE & UNABRIDGED REPOSITORY
+Page 7 of 7
+Smart India Hackathon (SIH) Extracted Official Statements | Color Coded Document
